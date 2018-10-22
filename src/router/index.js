@@ -1,28 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Layout from '@/components/common/Layout'
-import Index from '@/components/index/Index'
-import Newslist from '@/components/news/Newslist'
-import Newscontent from '@/components/news/Newscontent'
-import Abouts from '@/components/about/Abouts'
-import Recruit from '@/components/recruit/Recruit'
-import Recruitcontent from '@/components/recruit/Recruitcontent'
-import Volunteers from '@/components/volunteers/Volunteers'
-import Voluncontent from '@/components/volunteers/Voluncontent'
-import Pro from '@/components/pro/Pro'
-import Contact from '@/components/contact/Contact'
-import Login from '@/components/regislogin/Login'
-import Regis from '@/components/regislogin/Regis'
-import Person from '@/components/center/Person'
-import Help from '@/components/center/Help'
-import Actives from '@/components/center/Actives'
-import Safety from '@/components/center/Safety'
-import Repass from '@/components/center/Repass'
-import Succ from '@/components/center/Succ'
-
+const _import = require('./_import_' + process.env.NODE_ENV)
 Vue.use(Router)
-
 export default new Router({
   mode: 'history',
   scrollBehavior: () => ({
@@ -32,7 +12,7 @@ export default new Router({
     {
       path: '/helloWorld',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: _import('HelloWorld')
     },
     {
       path: '/',
@@ -41,7 +21,7 @@ export default new Router({
       redirect: '/index',
       children: [{
         path: 'index',
-        component: Index
+        component: _import('index/Index')
       }]
     },
     {
@@ -52,11 +32,11 @@ export default new Router({
       children: [
         {
           path: 'lists',
-          component: Newslist
+          component: _import('news/Newslist')
         },
         {
           path: 'content',
-          component: Newscontent
+          component: _import('news/Newscontent')
         }
       ]
     },
@@ -67,7 +47,7 @@ export default new Router({
       redirect: '/Abouts/index',
       children: [{
         path: 'index',
-        component: Abouts
+        component: _import('about/Abouts')
       }]
     },
     {
@@ -78,11 +58,11 @@ export default new Router({
       children: [
         {
           path: 'index',
-          component: Recruit
+          component: _import('recruit/Recruit')
         },
         {
           path: 'content',
-          component: Recruitcontent
+          component: _import('recruit/Recruitcontent')
         }
       ]
     },
@@ -94,11 +74,11 @@ export default new Router({
       children: [
         {
           path: 'index',
-          component: Volunteers
+          component: _import('volunteers/Volunteers')
         },
         {
           path: 'content',
-          component: Voluncontent
+          component: _import('volunteers/Voluncontent')
         }
       ]
     },
@@ -109,7 +89,7 @@ export default new Router({
       redirect: '/Pro/index',
       children: [{
         path: 'index',
-        component: Pro
+        component: _import('pro/Pro')
       }]
     },
     {
@@ -119,7 +99,7 @@ export default new Router({
       redirect: '/Contact/index',
       children: [{
         path: 'index',
-        component: Contact
+        component: _import('contact/Contact')
       }]
     },
     {
@@ -129,7 +109,7 @@ export default new Router({
       redirect: '/Login/index',
       children: [{
         path: 'index',
-        component: Login
+        component: _import('regislogin/Login')
       }]
     },
     {
@@ -139,7 +119,7 @@ export default new Router({
       redirect: '/Regis/index',
       children: [{
         path: 'index',
-        component: Regis
+        component: _import('regislogin/Regis')
       }]
     },
     {
@@ -150,27 +130,27 @@ export default new Router({
       children: [
         {
           path: 'index',
-          component: Person
+          component: _import('center/Person')
         },
         {
           path: 'safety',
-          component: Safety
+          component: _import('center/Safety')
         },
         {
           path: 'actives',
-          component: Actives
+          component: _import('center/Actives')
         },
         {
           path: 'repass',
-          component: Repass
+          component: _import('center/Repass')
         },
         {
           path: 'succ',
-          component: Succ
+          component: _import('center/Succ')
         },
         {
           path: 'help',
-          component: Help
+          component: _import('center/Help')
         }
       ]
     }
